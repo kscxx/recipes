@@ -14,6 +14,7 @@
 
 using namespace muduo;
 
+// __thread类型的变量每一个线程有一份独立实体，各个线程的值互不干扰。
 __thread EventLoop* t_loopInThisThread = 0;
 
 EventLoop::EventLoop()
@@ -22,7 +23,7 @@ EventLoop::EventLoop()
 {
   LOG_TRACE << "EventLoop created " << this << " in thread " << threadId_;
   if (t_loopInThisThread)
-  {
+  {  // one loop per thread:每个线程只能由一个eventloop
     LOG_FATAL << "Another EventLoop " << t_loopInThisThread
               << " exists in this thread " << threadId_;
   }

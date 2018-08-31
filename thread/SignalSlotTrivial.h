@@ -1,3 +1,5 @@
+// 在 C++11 中，借助 variadic template，实现最简单（trivial）的一对多回调
+
 #ifndef MUDUO_BASE_SIGNALSLOTTRIVIAL_H
 #define MUDUO_BASE_SIGNALSLOTTRIVIAL_H
 
